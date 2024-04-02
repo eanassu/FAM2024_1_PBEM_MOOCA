@@ -22,6 +22,7 @@ public class DaoAluno {
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	public void inserir( Aluno aluno ) {
@@ -35,9 +36,10 @@ public class DaoAluno {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
-	public List<Aluno> getLista() { 
+	public List<Aluno> getLista() {
 		List<Aluno> result = new ArrayList<Aluno>();
 		try {
 			String sql="SELECT RA,NOME,DATANASCIMENTO,RENDA FROM ALUNOS";
@@ -52,11 +54,12 @@ public class DaoAluno {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return result;
 	}
-	
-	
+
+
 	public Aluno buscarPeloRa( int ra ) {
 		try {
 			String sql="SELECT RA,NOME,DATANASCIMENTO,RENDA FROM ALUNOS WHERE RA=?";
@@ -71,11 +74,12 @@ public class DaoAluno {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return null;
 	}
-	
-	
+
+
 	public void atualizar( Aluno aluno ) {
 		try {
 			String sql="UPDATE ALUNOS SET nome=?,dataNascimento=?,renda=? WHERE RA=?";
@@ -87,6 +91,7 @@ public class DaoAluno {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	public void excluir( Aluno aluno ) {
@@ -97,6 +102,7 @@ public class DaoAluno {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	public static void main(String[] args) {
