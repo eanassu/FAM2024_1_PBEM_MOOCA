@@ -11,5 +11,6 @@
 RA:<input type='text' name='ra'/>
 <input type='submit' value='buscar'>
 </form>
+<a href='/Projeto'>voltar</a>
 </body>
 </html>
