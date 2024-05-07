@@ -1,30 +1,20 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="br.com.vemprafam.pojo.Aluno"%>
-<%@page import="br.com.vemprafam.dao.DaoAluno"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Alteração</title>
 </head>
 <body>
-<%
-int ra = Integer.parseInt(request.getParameter("ra"));
-DaoAluno dao = new DaoAluno();
-Aluno a = dao.buscarPeloRa(ra);
-SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-String dataS = dateFormat.format(a.getDataNascimento());
-%>
 
-
-<form action="alterarAluno">
-RA:<input type='text' name='ra' value='<%=a.getRa()%>'/><br/>
-nome:<input type='text' name='nome' value='<%=a.getNome()%>'/><br/>
-data de nascimento:<input type='text' name='dataNascimento' 
-                                             value='<%=dataS%>'/><br/>
-renda:<input type='text' name='renda' value='<%=a.getRenda()%>'/><br/>
+<form action="Controller">
+RA:<input type='text' name='ra' value='${ra}'/><br/>
+nome:<input type='text' name='nome' value='${nome}'/><br/>
+data de nascimento:<input type='text' name='dataNascimento'
+                                             value='${dataNascimento}'/><br/>
+renda:<input type='text' name='renda' value='${renda}'/><br/>
+<input type='hidden' name='op' value='Alteracao'/>
 <input type='submit' value='enviar'/>
 </form>
 <a href='/Projeto'>voltar</a>

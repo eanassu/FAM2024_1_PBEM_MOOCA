@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Busca pelo RA</title>
+<title>Resultado</title>
 </head>
 <body>
-<form action='Controller'>
-RA:<input type='text' name='ra'/>
-<input type='hidden' name='op' value='Busca'/>
-<input type='submit' value='Busca'>
-</form>
+<p>Alterado</p>
 <a href='/Projeto'>voltar</a>
 </body>
 </html>
